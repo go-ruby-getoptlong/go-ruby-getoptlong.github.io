@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-getoptlong.github.io/"
+title = "go-ruby-getoptlong"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Long, short & abbreviated names"
+  status = "ready"
+  blurb = "A long name may be given by any unique prefix; an ambiguous prefix raises `AmbiguousOption`. Options may carry any number of aliases and always report the canonical (first) name."
+[[params.phases]]
+  name = "Argument forms"
+  status = "ready"
+  blurb = "`--name=value` and `--name value` for long options; `-nvalue`, `-n value`, and bundled `-abc` for short options — with MRI's exact rules for `NoArgument` / `RequiredArgument` / `OptionalArgument`."
+[[params.phases]]
+  name = "Ordering modes"
+  status = "ready"
+  blurb = "`Permute` (default; options and operands mix), `RequireOrder` (options must precede operands), and `ReturnInOrder` (operands returned as `(\"\", word)`) — plus the `--` terminator."
+[[params.phases]]
+  name = "Error taxonomy"
+  status = "ready"
+  blurb = "`InvalidOption`, `MissingArgument`, `NeedlessArgument`, `AmbiguousOption` (all under `Error`) with the exact POSIX-format messages MRI produces, an optional `$0`-style program-name prefix, and a quiet mode."
+[[params.phases]]
+  name = "No global state"
+  status = "ready"
+  blurb = "Operates on a `Parser`-owned argv slice and a caller-supplied `io.Writer` instead of Ruby's global `ARGV` / `$0` / `$stderr` — the host binds those to a `Parser` and reads leftover operands from `Parser.Args`."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "Every scenario — all three orderings, name forms, argument forms, the terminator, each error class — run through both this package and the system `ruby` and compared byte-for-byte (option stream, leftover argv, error class + message); 100% coverage, green across 6 arches and 3 OSes."
