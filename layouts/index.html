@@ -41,11 +41,9 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">go-ruby-getoptlong</h1>
-      <p class="sub">Ruby's GetoptLong getopt-style option parser in pure Go — MRI-identical messages, no cgo.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/docs/">{{ partial "icons/book.html" . }}Documentation</a>
-        <a class="btn btn-ghost" href="https://github.com/go-ruby-getoptlong/getoptlong">{{ partial "icons/github.html" . }}GitHub</a>
-      </div>
+      <p class="sub">Ruby's GetoptLong getopt-style option parser in {{ if partial "mantra-on.html" . }}Go{{ else }}pure Go{{ end }} — MRI-identical messages, {{ if not (partial "mantra-on.html" $) }}no cgo{{ end }}.</p>
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
       <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">pure Go · zero cgo</span>{{ end }}<span class="pill">Ruby <code>GetoptLong</code></span><span class="pill">long · short · abbrev</span><span class="pill">bundled / =joined args</span><span class="pill">Permute · RequireOrder · ReturnInOrder</span><span class="pill"><code>--</code> terminator</span><span class="pill">MRI-identical errors</span><span class="pill">no global ARGV</span><span class="pill">100% coverage</span><span class="pill">6 arches</span></div>
       <div class="legacy"><div class="badges">
       <a href="/docs/"><img alt="Documentation (MkDocs Material + mike)" src="https://img.shields.io/badge/docs-mkdocs--material-9B1C2E"></a>
